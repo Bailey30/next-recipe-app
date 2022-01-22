@@ -12,7 +12,7 @@ const recipesQuery = `*[_type == "recipe"]{
 
 export default function Home({ recipes }) {
 
-  console.log(recipes);
+  // console.log(recipes);
   return (
     <div>
       <Head>
