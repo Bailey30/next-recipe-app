@@ -26,9 +26,8 @@ const recipeQuery = `*[_type == "recipe" && slug.current == $slug][0]{
 export default function OneRecipe({ data, preview }) {
     const router = useRouter()
 
-    if (router.isFall0back) {
-        return <div>Loading...</div>
-    }
+
+
 
     const { data: recipe } = usePreviewSubscription(recipeQuery, {
         //params -- works the same as the client, can add info to the query to find the correct recipe by its slug
@@ -52,7 +51,7 @@ export default function OneRecipe({ data, preview }) {
 
         setLikes(data.likes)
     }
-
+    if (router.isFallback) return <div>Loading...</div>;
 
     return (
         <article className="recipe">
