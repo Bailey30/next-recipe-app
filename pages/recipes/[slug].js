@@ -24,9 +24,10 @@ const recipeQuery = `*[_type == "recipe" && slug.current == $slug][0]{
 
 ////dereference because we are getting ingredient from the recipe where the ingredient was referenced
 export default function OneRecipe({ data, preview }) {
-    const router = useRouter()
-
-
+    // const router = useRouter()
+    
+    
+    // if (!data) return <div>Loading...</div>;
 
 
     const { data: recipe } = usePreviewSubscription(recipeQuery, {
@@ -51,7 +52,6 @@ export default function OneRecipe({ data, preview }) {
 
         setLikes(data.likes)
     }
-    if (router.isFallback) return <div>Loading...</div>;
 
     return (
         <article className="recipe">
