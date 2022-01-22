@@ -27,17 +27,17 @@ export default function OneRecipe({ data, preview }) {
     // const router = useRouter()
     
     
-    if (!data) return <div>Loading...</div>;
+    // if (!data) return <div>Loading...</div>;
 
 
-    const { data: recipe } = usePreviewSubscription(recipeQuery, {
-        //params -- works the same as the client, can add info to the query to find the correct recipe by its slug
-        params: { slug: data.recipe?.slug.current },
-        //intialdata -- the data that is returned before the real time updates start up - typically the data that comes from get static props -- data should be the same shape as what you get out of usePreviewSubscription
-        initialData: data,
-        //controls if preview should be activated or not
-        enabled: preview,
-    })
+    // const { data: recipe } = usePreviewSubscription(recipeQuery, {
+    //     //params -- works the same as the client, can add info to the query to find the correct recipe by its slug
+    //     params: { slug: data.recipe?.slug.current },
+    //     //intialdata -- the data that is returned before the real time updates start up - typically the data that comes from get static props -- data should be the same shape as what you get out of usePreviewSubscription
+    //     initialData: data,
+    //     //controls if preview should be activated or not
+    //     enabled: preview,
+    // })
 
     const [likes, setLikes] = useState(data?.recipe?.likes)
 
@@ -52,7 +52,7 @@ export default function OneRecipe({ data, preview }) {
 
         setLikes(data.likes)
     }
-
+    const {recipe} = data
     return (
         <article className="recipe">
             <h1></h1>{recipe.name}
