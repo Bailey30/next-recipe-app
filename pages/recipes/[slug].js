@@ -27,7 +27,7 @@ export default function OneRecipe({ data, preview }) {
     // const router = useRouter()
     
     
-   
+    if (!data) return <div>Loading...</div>;
 
 
     const { data: recipe } = usePreviewSubscription(recipeQuery, {
@@ -52,7 +52,7 @@ export default function OneRecipe({ data, preview }) {
 
         setLikes(data.likes)
     }
- if (!data) return <div>Loading...</div>;
+
     return (
         <article className="recipe">
             <h1></h1>{recipe.name}
